@@ -1,0 +1,44 @@
+header#main-header {
+    background: #00a1d7;
+    height: 90px;
+    width: 100%;
+    /* 3d8df6 */
+}
+
+header#main-header .header-content {
+    width: 90%;
+    margin: auto; 
+    height: 90px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+h2 {
+    font-family: 'Viga', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    border: 0;
+    margin-left: 15px;
+}
+.logo {
+    margin-left: 40px;
+
+    display: flex;
+    align-items: center;
+}
+.user-content {
+    margin-right: 15px;
+
+    display: flex;
+    align-items: center;
+}
+.sair {
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.75);
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.sair:hover {
+    color: rgba(255, 255, 255, 1);
+}

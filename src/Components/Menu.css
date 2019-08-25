@@ -1,0 +1,39 @@
+/* .menu {
+    height: calc(100vh - 90px);
+    max-width: 250px;
+    min-width: 100px;
+    width: 20%;
+
+    background-color: #263238;
+}
+.title-menu {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.nav {
+    padding-top: 20px;
+}
+
+ul {
+    list-style: none;   
+    cursor: pointer;
+}
+li {
+    padding: 10px 20px;
+}
+ul img {
+    margin-left: 20px;
+}
+/* a {
+    font-size: 14px;
+    text-decoration: none;
+    color: rgba(163,175,183,.9);
+
+    display: flex;
+    align-items: center;
+}
+a:hover{
+    color: rgba(255, 255, 255, 0.945);
+    background-color: #3d4244;
+} */ 
