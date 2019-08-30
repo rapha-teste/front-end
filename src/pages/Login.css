@@ -30,7 +30,7 @@
     align-items: center;
     justify-content: center;
 }
-.logo img {
+.logo-login img {
     margin-bottom: 10px;
 }
 .form-login {
@@ -54,6 +54,9 @@
     font-size: 13px;
     color: #666;
     height: 40px;
+}
+.form-login__input:hover {
+    border: 1px solid var(--gray10);
 }
 .form-login__input::placeholder {
     font-size: 13px;

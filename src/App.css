@@ -17,6 +17,9 @@ html, body, #root {
 a {
     text-decoration: none;
 }
+a:hover{
+    text-decoration: none;
+}
 th {
     font-weight: 400;
 }

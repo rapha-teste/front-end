@@ -157,6 +157,9 @@ button.react-calendar__navigation__label {
     font-size: 12px;
     font-weight: bold;
 }
+.table__tr {
+    cursor: pointer;
+}
 .col-qtd {
     text-align: center;
 }
@@ -215,6 +218,9 @@ button.react-calendar__navigation__label {
     padding-left: 5px;
     border : 1px solid var(--gray);
     border-radius: 4px;
+}
+.form-new-called__input:hover {
+    border: 1px solid var(--gray10);
 }
 .form-new-called__input:focus {
     margin: 2px 0;

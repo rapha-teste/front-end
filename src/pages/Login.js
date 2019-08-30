@@ -8,8 +8,6 @@ export default function Login({ history }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const inputEmail = document.querySelector('#email');
-    const inputPassword = document.querySelector('#password');
     var msgError = document.createElement('p');
     msgError.classList.add('msg-error')
 
@@ -102,7 +100,6 @@ export default function Login({ history }) {
             .catch(function (error) {
 
                 if (error.response) {
-                    console.log(error.response.data);
 
                     msgError.textContent = error.response.data.error
                     msgError.classList.add('msg-error--email-password')
@@ -129,7 +126,6 @@ export default function Login({ history }) {
                     type="text" 
                     placeholder="Email" 
                     value={email} onChange={ e => setEmail(e.target.value)}
-                    spellcheck="false"
                     />
                     <input 
                     className="form-login__input" id="password"

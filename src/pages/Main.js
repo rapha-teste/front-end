@@ -19,7 +19,8 @@ export default function Main({ match }) {
 
     const months = ["Janeiro", "February", "March", "April", "May", "June", "July", "Agosto", "September", "October", "November", "December"];
     const dayOfWeek = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom']
-
+    
+    
     useEffect(() => {
 
     async function renderCalled() {
@@ -33,10 +34,11 @@ export default function Main({ match }) {
         
     }
     renderCalled()
-
+    
     setTimeout(() => {
         setLoad(true);
-    }, 1500);
+        editWeek()
+    }, 500);
     
 
     }, [ data ]);
@@ -163,11 +165,41 @@ export default function Main({ match }) {
         })
     }
 
+    async function editCalled(idCalled) {
+        const inputsEl = document.querySelectorAll('.form-new-called__input')
+
+        document.querySelector('.section-right__title').innerHTML = 'Editar Chamado'
+        document.querySelector('.form-new-called__button').innerHTML = 'CONFIRMAR'
+
+        called.map(element => {
+
+            if(element._id === idCalled) {
+
+                inputsEl[0].value = element.id_customer
+                inputsEl[1].value = element.id_called
+                inputsEl[2].value = element.qtd_called
+                inputsEl[3].value = element.distance
+                inputsEl[4].value = element.parking
+                inputsEl[5].value = element.toll
+
+            }
+
+        })
+
+        // await api.put('/called', { 
+        //         headers: { id:idCalled, 
+        //     }
+        // })
+        // .then(() => {
+        //     loadCalled();
+        // })
+    }
+
     return ( 
         <>
         {load ? (
         <div className="container-main">
-            <section className="section-left" onLoad={editWeek()}>
+            <section className="section-left">
                 <div className="section-int">
                     <div>
                         <Calendar
@@ -304,7 +336,7 @@ export default function Main({ match }) {
                             </thead>
                             <tbody>
                                 {called.length > 0 ? called.map(e => (
-                                    <tr id={e._id} key={e._id}>
+                                    <tr id={e._id} key={e._id} onClick={() => editCalled(e._id)} className="table__tr">
                                         <th>{e.id_customer}</th>
                                         <th>{e.id_called}</th>
                                         <th className="col-qtd">{e.qtd_called}</th>
@@ -312,7 +344,7 @@ export default function Main({ match }) {
                                             R$ {e.distance > 0 || e.parking > 0 || e.toll > 0 
                                                 ? (e.distance*0.6+e.parking+e.toll).toFixed(2)
                                                 : ('0.00')}
-                                            <img onClick={() => deleteCalled(e._id)} src={btnExcluir} width="8px"/>
+                                            <img onClick={() => deleteCalled(e._id)} src={btnExcluir} width="8px" alt="a"/>
                                         </th>
                                     </tr>
                                 ))  :   (
@@ -334,7 +366,7 @@ export default function Main({ match }) {
             </section>
             <section className="section-right">
                 <div className="section-int">
-                <header className="title">Novo Chamado</header>
+                <header className="title section-right__title">Novo Chamado</header>
                 <form className="form-new-called" onSubmit={handleSubmit}>
                     <label className="form-new-called__label">Sigla Cliente</label>
                     <input className="form-new-called__input"
@@ -362,7 +394,7 @@ export default function Main({ match }) {
             </>
             
         </div>
-        ) : (<div className="container-load"><img className="loading" src={loading} width="60px"/></div>)}
+        ) : (<div className="container-load"><img className="loading" src={loading} alt="a" width="60px"/></div>)}
     </>    
     )
 }
